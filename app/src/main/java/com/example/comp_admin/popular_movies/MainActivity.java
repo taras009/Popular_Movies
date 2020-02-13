@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MoviesAdaptor.MyClickListener {
 
     private MoviesAdaptor moviesAdaptor;
 
@@ -34,11 +36,19 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_movies);
         mRecyclerView.setHasFixedSize(true);
 
-        layoutManager = new GridLayoutManager(this,5);
+        layoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        moviesAdaptor = new MoviesAdaptor(imagesArray);
+        moviesAdaptor = new MoviesAdaptor(imagesArray,this);
         mRecyclerView.setAdapter(moviesAdaptor);
 
+    }
+
+    @Override
+    public void onMyItemClick(Movie item) {
+        Toast.makeText(this, "Something is clicked", Toast.LENGTH_SHORT).show();
+        Intent detailsIntent = new Intent(MainActivity.this, DetailsActivity.class);
+
+        startActivity(detailsIntent);
     }
 }
