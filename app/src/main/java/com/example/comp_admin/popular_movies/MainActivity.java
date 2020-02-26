@@ -25,13 +25,6 @@ public class MainActivity extends AppCompatActivity implements MoviesAdaptor.MyC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imagesArray = new ArrayList<>();
-        imagesArray.add(new Movie(R.drawable.cupcake));
-        imagesArray.add(new Movie(R.drawable.donut));
-        imagesArray.add(new Movie(R.drawable.eclair));
-        imagesArray.add(new Movie(R.drawable.froyo));
-        imagesArray.add(new Movie(R.drawable.gingerbread));
-        imagesArray.add(new Movie(R.drawable.honeycomb));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_movies);
         mRecyclerView.setHasFixedSize(true);
