@@ -8,4 +8,4 @@ android:layout_height="wrap_content"
 
 
 tools:ignore="ContentDescription"
-tools:src="@drawable/cupcake" />
+/>
